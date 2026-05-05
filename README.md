@@ -2,27 +2,40 @@
 
 ## 📌 Project Status
 
-🚧 Currently in development — Entity modeling phase completed.
+🚧 In Progress — Core backend structure implemented
 
 ## 🧠 Problem Statement
 
-Backend system to manage scheduling of performances across multiple stages in a multi-day music festival. The system ensures:
+Backend system to manage scheduling of performances in a multi-stage, multi-day music festival.
+
+The system ensures:
 
 * No overlapping performances on the same stage
 * No artist is double-booked
 
+---
+
 ## 🏗️ Current Progress
 
-✔️ Defined core entities:
+### ✔️ Entity Layer
 
-* Artist
-* Stage
-* Performance
+* Artist (name, genre)
+* Stage (name, description)
+* Performance (date, startTime, endTime)
 
-✔️ Established relationships:
+### ✔️ Relationships
 
 * One Stage → Many Performances
 * One Artist → Many Performances
+
+### ✔️ Layers Created
+
+* Controller (API endpoints)
+* Service (business logic)
+* Repository (data access)
+* Exception (global error handling structure)
+
+---
 
 ## ⚙️ Tech Stack
 
@@ -31,14 +44,19 @@ Backend system to manage scheduling of performances across multiple stages in a 
 * Spring Data JPA
 * Hibernate
 * H2 Database
+* Maven
+
+---
 
 ## 🚀 Upcoming Features
 
-* Conflict detection logic (no overlaps)
-* REST APIs for scheduling
-* AOP logging
-* JWT authentication (bonus)
-* Swagger documentation
+* Conflict detection (no overlapping schedules)
+* REST APIs for performance management
+* AOP logging (add/update/delete tracking)
+* Swagger/OpenAPI documentation
+* JWT Authentication (bonus)
+
+---
 
 ## 🛠️ How to Run
 
@@ -46,8 +64,17 @@ Backend system to manage scheduling of performances across multiple stages in a 
 mvn spring-boot:run
 ```
 
-## 📅 Future Scope
+---
 
-* Full schedule API grouped by stage
-* Role-based authentication (Organizer / Viewer)
-* Unit testing for scheduling logic
+## 📅 Planned APIs
+
+* Add performance
+* Update / Delete performance
+* Get schedule by date
+* Get performances by stage
+
+---
+
+## 📌 Notes
+
+This project is being developed incrementally as part of a backend systems assignment focusing on scheduling logic and system design.
