@@ -23,5 +23,6 @@ public class Stage {
 	private String location;
 	
 	@OneToMany(mappedBy = "stage", cascade = CascadeType.ALL)
+	@ToString.Exclude // Prevents infinite loop
 	private List<Performance> performances;
 }

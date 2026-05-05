@@ -25,7 +25,7 @@ public class Performance {
 	private LocalTime endTime;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "stage_id", nullable = false)
+	@JoinColumn(name = "artist_id", nullable = false)
 	private Artist artist;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

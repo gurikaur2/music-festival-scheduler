@@ -22,5 +22,6 @@ public class Artist {
 	private String genre;
 	
 	@OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
+	@ToString.Exclude // Prevents infinite loop
 	private List<Performance> performances;
 }
