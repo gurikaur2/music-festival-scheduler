@@ -2,11 +2,14 @@
 
 ## 📌 Project Status
 
-🚧 In Progress — Core backend structure implemented
+✅ Core functionality completed
+⚠️ Unit testing in progress (minor issues under resolution)
+
+---
 
 ## 🧠 Problem Statement
 
-Backend system to manage scheduling of performances in a multi-stage, multi-day music festival.
+A backend system to manage scheduling of performances in a multi-stage, multi-day music festival.
 
 The system ensures:
 
@@ -15,25 +18,83 @@ The system ensures:
 
 ---
 
-## 🏗️ Current Progress
+## 🏗️ Features Implemented
 
-### ✔️ Entity Layer
+### 🎤 Entity Modeling
 
 * Artist (name, genre)
 * Stage (name, description)
 * Performance (date, startTime, endTime)
 
-### ✔️ Relationships
+### 🔗 Relationships
 
 * One Stage → Many Performances
 * One Artist → Many Performances
 
-### ✔️ Layers Created
+---
 
-* Controller (API endpoints)
-* Service (business logic)
-* Repository (data access)
-* Exception (global error handling structure)
+### ⚙️ Core Functionality
+
+* Add new performance with conflict validation
+* Update existing performance
+* Delete (cancel) performance
+* Retrieve performances:
+
+  * By date
+  * By stage
+  * Full schedule
+
+---
+
+### 🚫 Conflict Detection (Key Logic)
+
+* Prevents overlapping performances on the same stage
+* Prevents an artist from being scheduled at multiple places at the same time
+
+---
+
+### 🌐 REST API Layer
+
+* Controller layer for all endpoints
+* Service layer for business logic
+* Repository layer using Spring Data JPA
+
+---
+
+### ⚠️ Exception Handling
+
+* Global exception handler implemented
+* Custom exceptions:
+
+  * ConflictException
+  * ResourceNotFoundException
+* Proper HTTP responses (400, 404, 201)
+
+---
+
+### 🔍 Domain-Specific Feature
+
+* Structured schedule retrieval:
+
+  * Grouped by stage
+  * Sorted by start time
+* Endpoint for full festival schedule
+
+---
+
+### 🔁 AOP (Aspect-Oriented Programming)
+
+* Logging aspect for:
+
+  * Add / update / delete operations
+* Rule-check logging (e.g., scheduling outside allowed time)
+
+---
+
+### 📄 API Documentation
+
+* Swagger / OpenAPI integrated
+* Interactive API testing via Swagger UI
 
 ---
 
@@ -48,13 +109,11 @@ The system ensures:
 
 ---
 
-## 🚀 Upcoming Features
+## 🧪 Testing Status
 
-* Conflict detection (no overlapping schedules)
-* REST APIs for performance management
-* AOP logging (add/update/delete tracking)
-* Swagger/OpenAPI documentation
-* JWT Authentication (bonus)
+* Unit tests implemented for scheduling logic
+* Conflict detection tests partially working
+* Some edge cases under debugging
 
 ---
 
@@ -66,15 +125,34 @@ mvn spring-boot:run
 
 ---
 
-## 📅 Planned APIs
+## 📌 API Access
 
-* Add performance
-* Update / Delete performance
-* Get schedule by date
-* Get performances by stage
+Swagger UI:
+
+```
+http://localhost:8080/swagger-ui.html
+```
 
 ---
 
-## 📌 Notes
+## 🚀 Future Improvements
 
-This project is being developed incrementally as part of a backend systems assignment focusing on scheduling logic and system design.
+* Fix remaining unit test issues
+* Add MySQL/PostgreSQL support
+* Enhance validation and edge case handling
+* Improve logging and monitoring
+
+---
+
+## 📅 Key Learnings
+
+* Handling real-world scheduling conflicts
+* Designing layered backend architecture
+* Using AOP for cross-cutting concerns
+* Implementing robust exception handling
+
+---
+
+## 👤 Author
+
+Gurnoor Kaur
