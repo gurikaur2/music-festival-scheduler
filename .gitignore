@@ -1,16 +1,25 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Compiled class file
 *.class
 
 # Log file
+=======
+target/
+>>>>>>> 3dd0313d7dabbea5f2303d1098354648bc5e9ae7
 *.log
 
-# BlueJ files
-*.ctxt
+# Eclipse / STS
+.project
+.classpath
+.settings/
+.springBeans
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# IntelliJ
+.idea/
+*.iml
 
+<<<<<<< HEAD
 # Package Files #
 *.jar
 *.war
@@ -58,3 +67,8 @@ build/
 ### VS Code ###
 .vscode/
 >>>>>>> bd962b3 (Initial commit - added entity models)
+=======
+# OS
+.DS_Store
+Thumbs.db
+>>>>>>> 3dd0313d7dabbea5f2303d1098354648bc5e9ae7
