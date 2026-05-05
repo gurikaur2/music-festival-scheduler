@@ -5,6 +5,11 @@ import java.time.*;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Performance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
