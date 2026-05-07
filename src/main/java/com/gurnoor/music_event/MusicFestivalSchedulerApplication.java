@@ -5,11 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class MusicFestivalSchedulerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MusicFestivalSchedulerApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(MusicFestivalSchedulerApplication.class, args);
+    }
 }

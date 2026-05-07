@@ -2,10 +2,13 @@ package com.gurnoor.music_event.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.*;
 
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Data
 @AllArgsConstructor
@@ -23,6 +26,7 @@ public class Stage {
 	private String location;
 	
 	@OneToMany(mappedBy = "stage", cascade = CascadeType.ALL)
-	@ToString.Exclude // Prevents infinite loop
+	@JsonIgnore
+	//@ToString.Exclude // Prevents infinite loop
 	private List<Performance> performances;
 }

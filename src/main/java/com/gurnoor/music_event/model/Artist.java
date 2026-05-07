@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,6 +26,7 @@ public class Artist {
 	private String genre;
 	
 	@OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
-	@ToString.Exclude // Prevents infinite loop
+	@JsonIgnore
+	//@ToString.Exclude // Prevents infinite loop
 	private List<Performance> performances;
 }

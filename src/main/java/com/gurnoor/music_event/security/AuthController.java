@@ -1,14 +1,11 @@
 package com.gurnoor.music_event.security;
 
-import java.util.Map;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
@@ -17,11 +14,10 @@ public class AuthController {
 
     private final JwtUtil jwtUtil;
 
-    // Hardcoded users for demo — replace with DB in production
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Map<String, String> body) {
-        String username = body.get("username");
-        String password = body.get("password");
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+        String username = request.getUsername();
+        String password = request.getPassword();
 
         if ("organizer".equals(username) && "pass123".equals(password)) {
             return ResponseEntity.ok(Map.of(
