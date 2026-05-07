@@ -79,3 +79,48 @@ After running the application:
 ```
 
 http://localhost:8080/swagger-ui/index.html
+
+🧪 Testing
+Unit Testing
+Service layer tested using JUnit 5
+Dependencies mocked using Mockito
+API Testing
+Tested using Postman
+Validated:
+JWT authentication
+Scheduling logic
+Role-based access control
+🗄️ Database
+H2 in-memory database
+Console available at:
+
+http://localhost:8080/h2-console
+
+Default Credentials:
+JDBC URL: jdbc:h2:mem:testdb
+Username: sa
+Password: (empty)
+📊 Logging
+
+Implemented using AOP (Aspect-Oriented Programming):
+
+Logs every API request
+Tracks execution time
+Helps debugging and monitoring
+⚠️ Business Rules
+Performances must be scheduled only between:
+1st August 2025 – 3rd August 2025
+A stage cannot have overlapping performances
+Each performance is linked to one artist and one stage
+▶️ How to Run
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+mvn spring-boot:run
+👨‍💻 Author
+Gurnoor Kaur
+⭐ Future Improvements
+Frontend UI (React/Angular)
+Pagination & filtering for schedules
+Redis caching for performance optimization
+Docker containerization
+CI/CD pipeline using GitHub Actions
