@@ -1,158 +1,81 @@
-# 🎵 Music Festival Scheduler (Backend)
+# 🎵 Music Festival Event Management System
 
-## 📌 Project Status
-
-✅ Core functionality completed
-⚠️ Unit testing in progress (minor issues under resolution)
+A Spring Boot backend application for managing a music festival. It provides features for managing artists, stages, and performance scheduling with secure authentication, proper validation, and full test coverage.
 
 ---
 
-## 🧠 Problem Statement
+## 🚀 Features
 
-A backend system to manage scheduling of performances in a multi-stage, multi-day music festival.
-
-The system ensures:
-
-* No overlapping performances on the same stage
-* No artist is double-booked
-
----
-
-## 🏗️ Features Implemented
-
-### 🎤 Entity Modeling
-
-* Artist (name, genre)
-* Stage (name, description)
-* Performance (date, startTime, endTime)
-
-### 🔗 Relationships
-
-* One Stage → Many Performances
-* One Artist → Many Performances
+- 🎤 Manage Artists (Create, View)
+- 🎪 Manage Stages
+- 📅 Schedule Performances within festival dates (1–3 August 2025)
+- 🔐 JWT Authentication & Role-based Authorization (Admin/Viewer)
+- 📖 Swagger API Documentation
+- 🧪 Unit Testing with JUnit & Mockito
+- 🧭 AOP Logging for request tracing
+- 💾 H2 In-Memory Database
+- ❗ Global Exception Handling
 
 ---
 
-### ⚙️ Core Functionality
+## 🛠 Tech Stack
 
-* Add new performance with conflict validation
-* Update existing performance
-* Delete (cancel) performance
-* Retrieve performances:
-
-  * By date
-  * By stage
-  * Full schedule
-
----
-
-### 🚫 Conflict Detection (Key Logic)
-
-* Prevents overlapping performances on the same stage
-* Prevents an artist from being scheduled at multiple places at the same time
+- Java 17+
+- Spring Boot
+- Spring Data JPA
+- Spring Security (JWT)
+- H2 Database
+- Maven
+- Swagger (Springdoc OpenAPI)
+- JUnit 5
+- Mockito
+- AOP (Aspect-Oriented Programming)
 
 ---
 
-### 🌐 REST API Layer
+## 📁 Project Structure
+com.gurnoor.music_event
+├── controller
+├── service
+├── repository
+├── model
+├── security
+├── exception
+├── config
+├── aspect
 
-* Controller layer for all endpoints
-* Service layer for business logic
-* Repository layer using Spring Data JPA
-
----
-
-### ⚠️ Exception Handling
-
-* Global exception handler implemented
-* Custom exceptions:
-
-  * ConflictException
-  * ResourceNotFoundException
-* Proper HTTP responses (400, 404, 201)
 
 ---
 
-### 🔍 Domain-Specific Feature
+## 🔐 Security
 
-* Structured schedule retrieval:
-
-  * Grouped by stage
-  * Sorted by start time
-* Endpoint for full festival schedule
-
----
-
-### 🔁 AOP (Aspect-Oriented Programming)
-
-* Logging aspect for:
-
-  * Add / update / delete operations
-* Rule-check logging (e.g., scheduling outside allowed time)
+- JWT-based authentication system
+- Role-based access control (Admin / Viewer)
+- Secure endpoints for creating/updating data
+- Public access for schedule viewing
 
 ---
 
-### 📄 API Documentation
+## 📌 API Endpoints
 
-* Swagger / OpenAPI integrated
-* Interactive API testing via Swagger UI
+### 👤 Artist APIs
+- `GET /api/artists`
+- `POST /api/artists`
 
----
+### 🎪 Stage APIs
+- `GET /api/stages`
 
-## ⚙️ Tech Stack
-
-* Java 21
-* Spring Boot
-* Spring Data JPA
-* Hibernate
-* H2 Database
-* Maven
+### 📅 Performance APIs
+- `POST /api/performances`
+- `GET /schedule/{date}`
+- `GET /schedule/stages`
 
 ---
 
-## 🧪 Testing Status
+## 📖 Swagger UI
 
-* Unit tests implemented for scheduling logic
-* Conflict detection tests partially working
-* Some edge cases under debugging
+After running the application:
 
----
-
-## 🛠️ How to Run
-
-```bash
-mvn spring-boot:run
 ```
 
----
-
-## 📌 API Access
-
-Swagger UI:
-
-```
-http://localhost:8080/swagger-ui.html
-```
-
----
-
-## 🚀 Future Improvements
-
-* Fix remaining unit test issues
-* Add MySQL/PostgreSQL support
-* Enhance validation and edge case handling
-* Improve logging and monitoring
-
----
-
-## 📅 Key Learnings
-
-* Handling real-world scheduling conflicts
-* Designing layered backend architecture
-* Using AOP for cross-cutting concerns
-* Implementing robust exception handling
-
----
-
-## 👤 Author
-
-Gurnoor Kaur
+http://localhost:8080/swagger-ui/index.html
